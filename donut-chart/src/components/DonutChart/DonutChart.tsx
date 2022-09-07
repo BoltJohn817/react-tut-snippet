@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/DonutChart/DonutChart.tsx
 
 Created with;
@@ -15,8 +12,7 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/DonutChartWidget/types'
 import DonutChartHelper from './DonutChartHelper'
 
-const DonutChart = ( props : IDonutChartProps ) => {
-
+const DonutChart = (props: IDonutChartProps) => {
   const [loaded, setLoaded] = useState(false)
 
   const [prevHeight, setPrevHeight] = useState(props.dimensions.height)
@@ -38,9 +34,10 @@ const DonutChart = ( props : IDonutChartProps ) => {
       .attr('width', props.dimensions.width)
       .attr('height', props.dimensions.height)
       .append('g')
-      .attr('transform', `translate(${  props.dimensions.width / 2  },${  props.dimensions.height / 2  })`);
+      .attr('transform', `translate(${props.dimensions.width / 2},${props.dimensions.height / 2})`)
 
-    const pie = d3.pie()
+    const pie = d3
+      .pie()
       .sort(null) // EE: need sorting?
       // @ts-ignore
       .value((d) => d.value)
@@ -48,11 +45,13 @@ const DonutChart = ( props : IDonutChartProps ) => {
     // @ts-ignore
     const pieData = pie(props.data)
 
-    const arc = d3.arc()
+    const arc = d3
+      .arc()
       .innerRadius(radius * 0.5)
       .outerRadius(radius * 0.8)
 
-    const outerArcForLabelsPosition = d3.arc()
+    const outerArcForLabelsPosition = d3
+      .arc()
       .innerRadius(radius * 0.9)
       .outerRadius(radius * 0.9)
 
@@ -66,7 +65,9 @@ const DonutChart = ( props : IDonutChartProps ) => {
       // @ts-ignore
       .attr('d', arc)
       // @ts-ignore
-      .attr('fill', (d) => { return (scales.color(d.data.name)) })
+      .attr('fill', (d) => {
+        return scales.color(d.data.name)
+      })
       .attr('stroke', 'white')
       .style('stroke-width', '2px')
       .style('opacity', 0.7)
@@ -88,9 +89,9 @@ const DonutChart = ( props : IDonutChartProps ) => {
         // @ts-ignore
         const posB = outerArcForLabelsPosition.centroid(d) // line break: we use the other arc generator that has been built only for that
         // @ts-ignore
-        const posC = outerArcForLabelsPosition.centroid(d); // Label position = almost the same as posB
+        const posC = outerArcForLabelsPosition.centroid(d) // Label position = almost the same as posB
         const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1); // multiply by 1 or -1 to put it on the right or on the left
+        posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1) // multiply by 1 or -1 to put it on the right or on the left
         return [posA, posB, posC]
       })
 
@@ -100,20 +101,21 @@ const DonutChart = ( props : IDonutChartProps ) => {
       .enter()
       .append('text')
       // @ts-ignore
-      .text(  (d) => { return d.data.name } )
+      .text((d) => {
+        return d.data.name
+      })
       .attr('transform', (d) => {
         // @ts-ignore
-        const pos = outerArcForLabelsPosition.centroid(d);
+        const pos = outerArcForLabelsPosition.centroid(d)
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        pos[0] = radius * 0.99 * (midAngle < Math.PI ? 1 : -1);
-        return `translate(${  pos  })`;
+        pos[0] = radius * 0.99 * (midAngle < Math.PI ? 1 : -1)
+        return `translate(${pos})`
       })
       .style('text-anchor', (d) => {
         const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2
-        return (midAngle < Math.PI ? 'start' : 'end')
+        return midAngle < Math.PI ? 'start' : 'end'
       })
       .style('fill', 'white')
-
   }, [props.data, props.dimensions, props.propertiesNames])
 
   useEffect(() => {
@@ -140,13 +142,8 @@ const DonutChart = ( props : IDonutChartProps ) => {
   return (
     <div id="div">
       <svg id="wrapper" width={props.dimensions.width} height={props.dimensions.height}>
-        <g
-          id="bounds"
-          style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}
-        >
-          <g
-            id="chart-group"
-          />
+        <g id="bounds" style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}>
+          <g id="chart-group" />
         </g>
       </svg>
     </div>

@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/BasicLineChart/BasicLineChart.tsx
 */
 
@@ -28,7 +25,7 @@ const BasicLineChart = (props: IBasicLineChartProps) => {
       .attr('transform', `translate(${props.left},${props.top})`)
 
     d3.dsv(',', '/Data/line.csv', (d) => {
-      const res = (d as unknown) as Types.Data
+      const res = d as unknown as Types.Data
       const date = d3.timeParse('%Y-%m-%d')(res.date)
       return {
         date,
@@ -51,7 +48,7 @@ const BasicLineChart = (props: IBasicLineChartProps) => {
         .domain([
           0,
           d3.max(data, (d) => {
-            return Math.max(...data.map((dt) => ((dt as unknown) as Types.Data).value), 0)
+            return Math.max(...data.map((dt) => (dt as unknown as Types.Data).value), 0)
           }),
         ] as number[])
         .range([height, 0])
@@ -70,10 +67,10 @@ const BasicLineChart = (props: IBasicLineChartProps) => {
           d3
             .line()
             .x((d) => {
-              return x(((d as unknown) as { date: number }).date)
+              return x((d as unknown as { date: number }).date)
             })
             .y((d) => {
-              return y(((d as unknown) as Types.Data).value)
+              return y((d as unknown as Types.Data).value)
             })
         )
     })

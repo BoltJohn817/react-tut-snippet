@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/BasicBarChart/BasicBarChart.tsx
 */
 
@@ -31,7 +28,7 @@ const BasicBarChart = (props: IBasicBarChartProps) => {
       .attr('transform', `translate(${props.left},${props.top})`)
 
     d3.dsv(',', '/Data/bar.csv', (d) => {
-      return (d as unknown) as Types.Data
+      return d as unknown as Types.Data
     }).then((data) => {
       // Scale the range of the Data in the domains
       x.domain(

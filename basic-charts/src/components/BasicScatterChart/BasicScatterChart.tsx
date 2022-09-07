@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/BasicScatterChart/BasicScatterChart.tsx
 */
 
@@ -33,7 +30,6 @@ const BasicScatterChart = (props: IBasicScatterChartProps) => {
         carat: d.carat,
       }
     }).then((data) => {
-
       const maxPrice = Math.max(...data.map((dt) => (dt as unknown as Types.Data).price), 0)
       const maxCarat = Math.max(...data.map((dt) => (dt as unknown as Types.Data).carat), 0)
 
@@ -50,10 +46,10 @@ const BasicScatterChart = (props: IBasicScatterChartProps) => {
         .enter()
         .append('circle')
         .attr('cx', (d) => {
-          return x(((d as unknown) as Types.Data).price)
+          return x((d as unknown as Types.Data).price)
         })
         .attr('cy', (d) => {
-          return y(((d as unknown) as Types.Data).carat)
+          return y((d as unknown as Types.Data).carat)
         })
         .attr('r', 0.8)
         .style('fill', props.fill)

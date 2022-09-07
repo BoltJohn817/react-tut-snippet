@@ -1,20 +1,19 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: SubMenu1Page.tsx
 */
 
-import React from 'react';
-import './SubMenu1Page.scss';
+import React from 'react'
+import './SubMenu1Page.scss'
 import { RouteComponentProps } from 'react-router-dom'
 
 export default class SubMenu1Page extends React.Component<ISubMenu1PageProps, ISubMenu1PageState> {
-
   constructor(props: ISubMenu1PageProps) {
-    super(props);
+    super(props)
     this.state = {
-      name: this.props.history.location.pathname.substring(1, this.props.history.location.pathname.length)
+      name: this.props.history.location.pathname.substring(
+        1,
+        this.props.history.location.pathname.length
+      ),
     }
   }
   componentWillMount() {
@@ -27,10 +26,7 @@ export default class SubMenu1Page extends React.Component<ISubMenu1PageProps, IS
     // TODO
   }
   render() {
-    return (
-      <div className="SubMenu1Page">
-        {this.state.name} Component
-      </div>);
+    return <div className="SubMenu1Page">{this.state.name} Component</div>
   }
 }
 

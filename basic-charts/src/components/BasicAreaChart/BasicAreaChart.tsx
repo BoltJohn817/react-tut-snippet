@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/BasicAreaChart/BasicAreaChart.tsx
 */
 
@@ -28,7 +25,7 @@ const BasicAreaChart = (props: IBasicAreaChartProps) => {
       .attr('transform', `translate(${props.left},${props.top})`)
 
     d3.dsv(',', '/Data/area.csv', (d) => {
-      const res = (d as unknown) as Types.data
+      const res = d as unknown as Types.data
       const date = d3.timeParse('%Y-%m-%d')(res.date)
       return {
         date,
@@ -70,11 +67,11 @@ const BasicAreaChart = (props: IBasicAreaChartProps) => {
             .area()
             .curve(d3.curveLinear)
             .x((d) => {
-              return x(((d as unknown) as { date: number }).date)
+              return x((d as unknown as { date: number }).date)
             })
             .y0(y(0))
             .y1((d) => {
-              return y(((d as unknown) as Types.data).value)
+              return y((d as unknown as Types.data).value)
             })
         )
     })

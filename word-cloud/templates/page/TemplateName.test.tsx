@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: Component: src/pages/TemplateName/TemplateName.test.tsx
 
 Created with;
@@ -16,8 +13,8 @@ import TemplateName from './TemplateName'
 const routeComponentPropsMock = {
   history: {
     location: {
-      pathname: '/TemplateName'
-    }
+      pathname: '/TemplateName',
+    },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

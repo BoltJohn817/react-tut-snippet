@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.tsx
 */
 
@@ -19,12 +16,7 @@ const TemplateName = () /* or ( props : ITemplateNameProps ) */ => {
 
   const draw = () => {
     d3.select(ref.current).append('p').text('Hello World')
-    d3.select('svg')
-      .append('g')
-      .attr('transform', 'translate(250, 0)')
-      .append('rect').attr('width', 500)
-      .attr('height', 500)
-      .attr('fill', 'tomato')
+    d3.select('svg').append('g').attr('transform', 'translate(250, 0)').append('rect').attr('width', 500).attr('height', 500).attr('fill', 'tomato')
   }
 
   return (

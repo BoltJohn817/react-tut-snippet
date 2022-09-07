@@ -1,12 +1,9 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/HelloJSXData/HelloJSXData.tsx
 */
 
-import React from 'react'
-import './HelloJSXData.scss'
+import React from "react";
+import "./HelloJSXData.scss";
 
 const HelloJSXData = (props: IHelloJSXDataProps) => {
   return (
@@ -15,11 +12,11 @@ const HelloJSXData = (props: IHelloJSXDataProps) => {
         <p key={`key-${d}`}>jsx {d}</p>
       ))}
     </div>
-  )
-}
+  );
+};
 
 interface IHelloJSXDataProps {
-  data: string[]
+  data: string[];
 }
 
-export default HelloJSXData
+export default HelloJSXData;

@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: LoginPage.tsx
 */
 import React, { useEffect, useState } from 'react'

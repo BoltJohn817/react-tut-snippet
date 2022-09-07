@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.test.tsx
 */
 
@@ -14,7 +11,11 @@ describe('<TemplateName />', () => {
   let component
 
   beforeEach(() => {
-    component = shallow(<RecoilRoot><TemplateName /></RecoilRoot>)
+    component = shallow(
+      <RecoilRoot>
+        <TemplateName />
+      </RecoilRoot>
+    )
   })
 
   test('It should mount', () => {

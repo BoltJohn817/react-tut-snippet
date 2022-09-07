@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/BasicPieChart/BasicPieChart.tsx
 */
 
@@ -30,7 +27,7 @@ const BasicPieChart = (props: IBasicPieChartProps) => {
       .attr('transform', `translate(${width / 2},${height / 2})`)
 
     d3.dsv(',', '/Data/pie.csv', (d) => {
-      const res = (d as unknown) as Types.Data
+      const res = d as unknown as Types.Data
       return {
         name: res.name,
         value: res.value,
@@ -39,9 +36,9 @@ const BasicPieChart = (props: IBasicPieChartProps) => {
       const color = d3
         .scaleOrdinal()
         .domain(
-          (d3.extent(data, (d) => {
+          d3.extent(data, (d) => {
             return d.name
-          }) as unknown) as string
+          }) as unknown as string
         )
         .range(d3.schemeCategory10)
 

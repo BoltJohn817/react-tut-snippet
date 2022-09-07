@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/DonutChartHelper/DonutChartHelper.tsx
 
 Implement - pass metric:
@@ -13,7 +10,6 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/DonutChartWidget/types'
 
 export default class DonutChartHelper {
-
   private readonly metric: string[]
 
   constructor(metric: string[]) {
@@ -50,11 +46,11 @@ export default class DonutChartHelper {
       color: d3
         .scaleOrdinal()
         .domain(
-          (d3.extent(data, (d) => {
+          d3.extent(data, (d) => {
             return d.name
-          }) as unknown) as string
+          }) as unknown as string
         )
-        .range(d3.schemeCategory10)
+        .range(d3.schemeCategory10),
     }
   }
 }

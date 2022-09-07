@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.tsx
 */
 
@@ -14,17 +11,7 @@ const TemplateName = () /* or ( props : ITemplateNameProps ) */ => {
   useEffect(() => {
     // TODO
   })
-  return (
-    <>
-      {results ? (
-        <div style={{ width: '100%', height: '400px', backgroundColor: 'lightgrey' }}>
-          TemplateName Loaded
-        </div>
-      ) : (
-        <>Loading</>
-      )}
-    </>
-  )
+  return <>{results ? <div style={{ width: '100%', height: '400px', backgroundColor: 'lightgrey' }}>TemplateName Loaded</div> : <>Loading</>}</>
 }
 
 /*

@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/WordCloud/WordCloud.tsx
 
 Created with;
@@ -33,9 +30,9 @@ const WordCloud = (props: IWordCloudProps) => {
 
     const randomFillColor = () => {
       const x = Math.floor(Math.random() * 256)
-      const y = 100+ Math.floor(Math.random() * 256)
-      const z = 50+ Math.floor(Math.random() * 256)
-      return `rgb(${  x  },${  y  },${  z  })`
+      const y = 100 + Math.floor(Math.random() * 256)
+      const z = 50 + Math.floor(Math.random() * 256)
+      return `rgb(${x},${y},${z})`
     }
 
     // draw chart
@@ -47,33 +44,31 @@ const WordCloud = (props: IWordCloudProps) => {
         .attr('width', layout.size()[0])
         .attr('height', layout.size()[1])
         .append('g')
-        .attr('transform', `translate(${  layout.size()[0] / 2  },${  layout.size()[1] / 2  })`)
+        .attr('transform', `translate(${layout.size()[0] / 2},${layout.size()[1] / 2})`)
         .selectAll('text')
         .data(words)
         .enter()
         .append('text')
         .style('fill', randomFillColor)
-        .style('font-size',  (d) => {
+        .style('font-size', (d) => {
           // @ts-ignore
-          return `${d.size  }px`
+          return `${d.size}px`
         })
         .style('font-family', 'Roboto')
         .attr('text-anchor', 'middle')
         .attr('transform', (d) => {
           // @ts-ignore
-          return `translate(${  [d.x, d.y]  })rotate(${  d.rotate  })`
+          return `translate(${[d.x, d.y]})rotate(${d.rotate})`
         })
-        .text( (d) => {
+        .text((d) => {
           // @ts-ignore
           return d.text
         })
     }
 
-    const layout = scales.layout
-      .on('end', draw)
+    const layout = scales.layout.on('end', draw)
 
     layout.start()
-
   }, [props.data, props.dimensions, props.propertiesNames])
 
   useEffect(() => {

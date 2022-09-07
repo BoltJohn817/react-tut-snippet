@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/SimpleReactVizChart/SimpleReactVizChart.tsx
 */
 
@@ -13,7 +10,6 @@ const SimpleReactVizChart = () => {
   return (
     <>
       <div className="App">
-
         <XYPlot height={300} width={300}>
           <LineSeries
             data={[
@@ -34,7 +30,6 @@ const SimpleReactVizChart = () => {
           <XAxis />
           <YAxis />
         </XYPlot>
-
       </div>
     </>
   )

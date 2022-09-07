@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.tsx
 */
 
@@ -9,9 +6,8 @@ import React from 'react'
 import './TemplateName.scss'
 
 export default class TemplateName extends React.PureComponent<ITemplateNameProps, ITemplateNameState> {
-
   constructor(props: ITemplateNameProps) {
-    super(props);
+    super(props)
     this.state = {
       // TODO
     }
@@ -27,8 +23,7 @@ export default class TemplateName extends React.PureComponent<ITemplateNameProps
     return true // or prevent rendering: false
   } */
 
-  static getDerivedStateFromProps:
-    React.GetDerivedStateFromProps<ITemplateNameProps, ITemplateNameState> = (props:ITemplateNameProps, state: ITemplateNameState) => {
+  static getDerivedStateFromProps: React.GetDerivedStateFromProps<ITemplateNameProps, ITemplateNameState> = (props: ITemplateNameProps, state: ITemplateNameState) => {
     // invoked right before calling the render method, both on the initial mount and on subsequent updates
     // return an object to update the state, or null to update nothing.
     return null
@@ -46,10 +41,7 @@ export default class TemplateName extends React.PureComponent<ITemplateNameProps
   }
 
   render() {
-    return (
-      <div className="TemplateName">
-        TemplateName
-      </div>)
+    return <div className="TemplateName">TemplateName</div>
   }
 }
 

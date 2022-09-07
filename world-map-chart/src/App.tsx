@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/App.tsx
 */
 
@@ -35,7 +32,7 @@ function App() {
             // eslint-disable-next-line no-console
             console.log(`Houston we have a problem:${error}`)
           }
-          setMapData({ mapFeatures: ((feature(d1, d1.objects.countries) as unknown) as FeatureCollection).features })
+          setMapData({ mapFeatures: (feature(d1, d1.objects.countries) as unknown as FeatureCollection).features })
           setCoordinatesData(d2)
         })
     }

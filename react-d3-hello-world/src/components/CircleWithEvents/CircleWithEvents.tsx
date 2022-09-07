@@ -1,12 +1,9 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/CircleWithEvents/CircleWithEvents.tsx
 */
 
-import * as React from 'react'
-import './CircleWithEvents.scss'
+import * as React from "react";
+import "./CircleWithEvents.scss";
 
 export default class CircleWithEvents extends React.PureComponent<ICircleWithEventsProps> {
   componentDidMount() {
@@ -35,23 +32,23 @@ export default class CircleWithEvents extends React.PureComponent<ICircleWithEve
               transform="translate(150 150)"
               r="100"
               onMouseOver={(event) => {
-                event.stopPropagation()
-                this.onMouseOverHandler(event)
+                event.stopPropagation();
+                this.onMouseOverHandler(event);
               }}
               onMouseOut={(event) => {
-                event.stopPropagation()
-                this.onMouseOutHandler()
+                event.stopPropagation();
+                this.onMouseOutHandler();
               }}
               onClick={(event) => {
-                event.stopPropagation()
+                event.stopPropagation();
                 // eslint-disable-next-line no-alert
-                alert('onClick')
+                alert("onClick");
               }}
             />
           </g>
         </svg>
       </>
-    )
+    );
   }
 }
 

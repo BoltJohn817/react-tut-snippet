@@ -1,13 +1,10 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/App.tsx
 */
 
-import React from 'react'
-import './App.scss'
-import PulsatingCircleD3 from './components/PulsatingCircle/PulsatingCircleD3'
+import React from "react";
+import "./App.scss";
+import PulsatingCircleD3 from "./components/PulsatingCircle/PulsatingCircleD3";
 // import CircleWithD3Events from './components/CircleWithEvents/CircleWithD3Events'
 // import CircleWithEvents from './components/CircleWithEvents/CircleWithEvents'
 // import PulsatingCircleD3 from './components/PulsatingCircle/PulsatingCircleD3'
@@ -46,7 +43,7 @@ function App() {
         */}
       </header>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

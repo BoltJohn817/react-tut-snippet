@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/LineChart/LineChartDateBisector.tsx
 */
 
@@ -50,7 +47,7 @@ const LineChartDateBisector = (props: ILineChartProps) => {
 
     // @ts-ignore
     const bisect = d3.bisector((d) => {
-      const currentDateSplit =  (d as {date: string}).date.split('/')
+      const currentDateSplit = (d as { date: string }).date.split('/')
       const currentDate = {
         year: parseInt(currentDateSplit[2], 10),
         month: parseInt(currentDateSplit[0], 10),
@@ -59,21 +56,9 @@ const LineChartDateBisector = (props: ILineChartProps) => {
       return new Date(currentDate.year, currentDate.month, currentDate.day)
     })
 
-    const focus = bounds
-      .append('g')
-      .append('circle')
-      .style('fill', 'none')
-      .attr('stroke', 'white')
-      .attr('r', 8.5)
-      .style('opacity', 0)
+    const focus = bounds.append('g').append('circle').style('fill', 'none').attr('stroke', 'white').attr('r', 8.5).style('opacity', 0)
 
-    const focusText = bounds
-      .append('g')
-      .append('text')
-      .style('opacity', 0)
-      .style('fill', 'white')
-      .attr('text-anchor', 'left')
-      .attr('alignment-baseline', 'middle')
+    const focusText = bounds.append('g').append('text').style('opacity', 0).style('fill', 'white').attr('text-anchor', 'left').attr('alignment-baseline', 'middle')
 
     bounds
       .append('rect')
@@ -83,7 +68,7 @@ const LineChartDateBisector = (props: ILineChartProps) => {
       .attr('height', props.dimensions.height)
       .on('mouseover', mouseover)
       .on('mousemove', mousemove)
-      .on('mouseout', mouseout);
+      .on('mouseout', mouseout)
 
     function mouseover() {
       focus.style('opacity', 1)
@@ -92,7 +77,7 @@ const LineChartDateBisector = (props: ILineChartProps) => {
 
     function mousemove(event: React.MouseEvent) {
       const [x] = d3.pointer(event)
-      const x0 = scales.xScale.invert(x);
+      const x0 = scales.xScale.invert(x)
       const currentDateSplit = x0.toISOString().split('T')[0].split('-')
       const currentDate = {
         year: parseInt(currentDateSplit[0], 10),
@@ -101,23 +86,19 @@ const LineChartDateBisector = (props: ILineChartProps) => {
       }
 
       let selectedData = props.data[props.data.length - 1]
-      const i = bisect.right( props.data, new Date(currentDate.year, currentDate.month, currentDate.day) )
-      if (i <= props.data.length - 1)
-        selectedData = props.data[i]
+      const i = bisect.right(props.data, new Date(currentDate.year, currentDate.month, currentDate.day))
+      if (i <= props.data.length - 1) selectedData = props.data[i]
 
-      focus
-        .attr('cx', scales.xScale(new Date(selectedData.date)))
-        .attr('cy', scales.yScale(selectedData.y))
+      focus.attr('cx', scales.xScale(new Date(selectedData.date))).attr('cy', scales.yScale(selectedData.y))
       focusText
-        .html(`x:${  selectedData.date  }  -  y:${  selectedData.y}`)
-        .attr('x', scales.xScale(new Date(selectedData.date))+15)
+        .html(`x:${selectedData.date}  -  y:${selectedData.y}`)
+        .attr('x', scales.xScale(new Date(selectedData.date)) + 15)
         .attr('y', scales.yScale(selectedData.y))
     }
     function mouseout() {
       focus.style('opacity', 0)
       focusText.style('opacity', 0)
     }
-
   }, [props.data, props.dimensions, props.propertiesNames])
 
   useEffect(() => {

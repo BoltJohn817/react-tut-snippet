@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.tsx
 
 Created with;
@@ -15,8 +12,7 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/TemplateNameWidget/types'
 import TemplateNameHelper from './TemplateNameHelper'
 
-const TemplateName = ( props : ITemplateNameProps ) => {
-
+const TemplateName = (props: ITemplateNameProps) => {
   const [loaded, setLoaded] = useState(false)
 
   const [prevHeight, setPrevHeight] = useState(props.dimensions.height)
@@ -32,8 +28,7 @@ const TemplateName = ( props : ITemplateNameProps ) => {
     const helper = new TemplateNameHelper(props.propertiesNames)
 
     // Chart
-    bounds
-      .select('#chart-group')
+    bounds.select('#chart-group')
 
     // Peripherals
 
@@ -51,7 +46,6 @@ const TemplateName = ( props : ITemplateNameProps ) => {
       // @ts-ignore
       .call(xAxisGenerator)
       .style('transform', `translateY(${props.dimensions.boundedHeight}px)`)
-
   }, [props.data, props.dimensions, props.propertiesNames])
 
   /*
@@ -86,13 +80,8 @@ const TemplateName = ( props : ITemplateNameProps ) => {
   return (
     <div id="div">
       <svg id="wrapper" width={props.dimensions.width} height={props.dimensions.height}>
-        <g
-          id="bounds"
-          style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}
-        >
-          <g
-            id="chart-group"
-          />
+        <g id="bounds" style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}>
+          <g id="chart-group" />
           <g id="x-axis" />
           <g id="y-axis" />
         </g>

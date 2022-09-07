@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/SimpleForceGraph/Label.tsx
 */
 
@@ -25,7 +22,7 @@ export default class Label extends React.PureComponent<ILabelProps> {
         // eslint-disable-next-line no-return-assign
         ref={(ref: SVGTextElement) => (this.ref = ref)}
         onClick={() => {
-          this.props.onNodeSelected(((this.props.node as unknown) as { index: number }).index - 1)
+          this.props.onNodeSelected((this.props.node as unknown as { index: number }).index - 1)
         }}
       >
         {this.props.node.name}

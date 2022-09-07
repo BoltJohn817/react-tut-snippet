@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/WordCloudHelper/WordCloudHelper.tsx
 
 Created with;
@@ -54,7 +51,7 @@ export default class WordCloudHelper {
       layout: d3Cloud()
         .size([width, height])
         .words(
-          (data.map(helper.yAccessor)).map((d) => {
+          data.map(helper.yAccessor).map((d) => {
             return { text: d, size: 10 + Math.random() * 90, test: 'haha' }
           })
         )
@@ -64,7 +61,7 @@ export default class WordCloudHelper {
         // @ts-ignore
         .fontSize((d) => {
           return d.size
-        })
+        }),
     }
   }
 }

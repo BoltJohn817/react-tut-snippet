@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/Brush/Brush.tsx
 
 Created with;
@@ -15,8 +12,7 @@ import { BrushBehavior } from 'd3-brush'
 import { Types } from '../../widgets/ChartWidget/types'
 import BrushChartHelper from './BrushHelper'
 
-const Brush = ( props : IBrushProps ) => {
-
+const Brush = (props: IBrushProps) => {
   const [loaded, setLoaded] = useState(false)
 
   const [prevHeight, setPrevHeight] = useState(props.dimensions.height)
@@ -57,8 +53,7 @@ const Brush = ( props : IBrushProps ) => {
 
     const defaultSelection = [0, 0]
 
-    d3
-      .select('#group-brush')
+    d3.select('#group-brush')
       // @ts-ignore
       .call(brush.current)
       // @ts-ignore
@@ -88,18 +83,15 @@ const Brush = ( props : IBrushProps ) => {
           .tickSizeOuter(0)
       )
 
-    d3
-      .select('#x-axis-brush')
+    d3.select('#x-axis-brush')
       // @ts-ignore
       .call(xAxis, scales.xScale, props.focusHeight)
 
     // yAxis
     const yAxisGenerator = d3.axisLeft(scales.yScale)
-    d3
-      .select('#y-axis-brush')
+    d3.select('#y-axis-brush')
       // @ts-ignore
       .call(yAxisGenerator)
-
   }, [props, brush])
 
   const memoizedUpdateCallback = useCallback(() => {
@@ -132,16 +124,8 @@ const Brush = ( props : IBrushProps ) => {
 
   return (
     <div id="div">
-      <svg
-        id="brush-wrapper"
-        width={props.dimensions.width}
-        height={props.dimensions.height}
-        style={{ display: 'block' }}
-      >
-        <g
-          id="brush-bounds"
-          style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}
-        >
+      <svg id="brush-wrapper" width={props.dimensions.width} height={props.dimensions.height} style={{ display: 'block' }}>
+        <g id="brush-bounds" style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}>
           <path id="brush-path" />
           <g id="x-axis-brush" />
           <g id="y-axis-brush" />

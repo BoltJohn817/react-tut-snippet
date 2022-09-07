@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/pages/TemplateName/TemplateName.tsx
 
 Created with;
@@ -14,14 +11,10 @@ import './TemplateName.scss'
 import { RouteComponentProps } from 'react-router-dom'
 
 export default class TemplateName extends React.PureComponent<ITemplateNameProps, ITemplateNameState> {
-
   constructor(props: ITemplateNameProps) {
-    super(props);
+    super(props)
     this.state = {
-      name: this.props.history.location.pathname.substring(
-        1,
-        this.props.history.location.pathname.length
-      ).replace('/', '')
+      name: this.props.history.location.pathname.substring(1, this.props.history.location.pathname.length).replace('/', ''),
     }
   }
 
@@ -35,7 +28,7 @@ export default class TemplateName extends React.PureComponent<ITemplateNameProps
     return true // or prevent rendering: false
   } */
 
-  static getDerivedStateFromProps: React.GetDerivedStateFromProps<ITemplateNameProps, ITemplateNameState> = (props:ITemplateNameProps, state: ITemplateNameState) => {
+  static getDerivedStateFromProps: React.GetDerivedStateFromProps<ITemplateNameProps, ITemplateNameState> = (props: ITemplateNameProps, state: ITemplateNameState) => {
     // invoked right before calling the render method, both on the initial mount and on subsequent updates
     // return an object to update the state, or null to update nothing.
     return null
@@ -53,10 +46,7 @@ export default class TemplateName extends React.PureComponent<ITemplateNameProps
   }
 
   render() {
-    return (
-      <div className="TemplateName">
-        {this.state.name} Component
-      </div>)
+    return <div className="TemplateName">{this.state.name} Component</div>
   }
 }
 

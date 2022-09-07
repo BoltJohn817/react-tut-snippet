@@ -2,9 +2,6 @@ Recoil selectors goes here, example: articlesSelectors.ts, see here:
 https://medium.com/react-courses/instantly-retrieve-mediums-articles-with-react-recoil-in-three-easy-steps-1298a464dd3c
 
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 File: src/model/articlesSelectors.ts
 */
 

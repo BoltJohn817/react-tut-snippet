@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/hooks/WindowDimensions.tsx
 */
 
@@ -18,12 +15,12 @@ export default (callback: (arg0: ICallback) => void) => {
     const delta = (now - last.current) / 1000
     callback({ time, delta })
     last.current = now
-    ;((frame as unknown) as IFrame).current = requestAnimationFrame(animate)
+    ;(frame as unknown as IFrame).current = requestAnimationFrame(animate)
   }
 
   useEffect(() => {
-    ((frame as unknown) as IFrame).current = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(((frame as unknown) as IFrame).current)
+    ;(frame as unknown as IFrame).current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame((frame as unknown as IFrame).current)
   })
 }
 

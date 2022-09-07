@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/widgets/TemplateName/TemplateName.tsx
 
 Created with;
@@ -20,7 +17,6 @@ import Chart from '../../components/Chart/Chart'
 import ChartHelper from '../../components/Chart/ChartHelper'
 
 const TemplateName = (props: ITemplateNameProps) => {
-
   const [data, setData] = useState<Types.Data[]>([{}])
 
   const [propertiesNames] = useState(['name', 'value'])
@@ -32,15 +28,15 @@ const TemplateName = (props: ITemplateNameProps) => {
 
   // resize
   useEffect(() => {
-    (dimensions as unknown as { current: Types.Dimensions }).current = ChartHelper.getDimensions(width * 0.9, height * 0.9, 30, 50, 10, 50)
+    ;(dimensions as unknown as { current: Types.Dimensions }).current = ChartHelper.getDimensions(width * 0.9, height * 0.9, 30, 50, 10, 50)
     // console.log(dimensions.current)
   }, [width, height, dimensions])
 
   const loadData = () => {
     d3.dsv(',', '/data/data.csv', (d) => {
-      return (d as unknown) as Types.Data[]
+      return d as unknown as Types.Data[]
     }).then((d) => {
-      setData((d as unknown) as Types.Data[])
+      setData(d as unknown as Types.Data[])
     })
   }
 
@@ -55,8 +51,7 @@ const TemplateName = (props: ITemplateNameProps) => {
   } */
 
   useEffect(() => {
-    if (data.length <= 1)
-      loadData()
+    if (data.length <= 1) loadData()
   })
 
   return (

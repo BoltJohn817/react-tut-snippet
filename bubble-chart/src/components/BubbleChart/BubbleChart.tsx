@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/BubbleChart/BubbleChart.tsx
 */
 
@@ -38,10 +35,10 @@ class BubbleChart extends React.Component<IBubbleChartProps, IBubbleChartState> 
     }
   }
 
-  setForceData = ( props: IBubbleChartProps ) => {
+  setForceData = (props: IBubbleChartProps) => {
     const d = []
-    for (let i= 0; i < props.bubblesData.length; i++) {
-      d.push({ 'size': props.bubblesData[i].size })
+    for (let i = 0; i < props.bubblesData.length; i++) {
+      d.push({ size: props.bubblesData[i].size })
     }
     return d
   }

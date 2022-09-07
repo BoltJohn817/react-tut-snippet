@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateName/TemplateName.tsx
 
 Created with;
@@ -28,12 +25,7 @@ export default class TemplateName extends React.PureComponent<ITemplateNameProps
     d3.select(this.ref.current).append('p').text('Hello World')
 
     // const svg = d3.select(this.myRef.current).append('svg').attr('width', 500).attr('height', 500)
-    d3.select('svg')
-      .append('g')
-      .attr('transform', 'translate(250, 0)')
-      .append('rect').attr('width', 500)
-      .attr('height', 500)
-      .attr('fill', 'tomato')
+    d3.select('svg').append('g').attr('transform', 'translate(250, 0)').append('rect').attr('width', 500).attr('height', 500).attr('fill', 'tomato')
   }
 
   render() {

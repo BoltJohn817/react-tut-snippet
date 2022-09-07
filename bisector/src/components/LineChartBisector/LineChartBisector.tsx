@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/LineChart/LineChartBisector.tsx
 */
 
@@ -48,26 +45,14 @@ const LineChartBisector = (props: ILineChartProps) => {
       .call(xAxisGenerator)
       .style('transform', `translateY(${props.dimensions.boundedHeight}px)`)
 
-    const bisect = d3.bisector( (d) => {
+    const bisect = d3.bisector((d) => {
       // @ts-ignore
       return d.x
     }).left
 
-    const focus = bounds
-      .append('g')
-      .append('circle')
-      .style('fill', 'none')
-      .attr('stroke', 'white')
-      .attr('r', 8.5)
-      .style('opacity', 0)
+    const focus = bounds.append('g').append('circle').style('fill', 'none').attr('stroke', 'white').attr('r', 8.5).style('opacity', 0)
 
-    const focusText = bounds
-      .append('g')
-      .append('text')
-      .attr('fill', 'white')
-      .style('opacity', 0)
-      .attr('text-anchor', 'left')
-      .attr('alignment-baseline', 'middle')
+    const focusText = bounds.append('g').append('text').attr('fill', 'white').style('opacity', 0).attr('text-anchor', 'left').attr('alignment-baseline', 'middle')
 
     bounds
       .append('rect')
@@ -90,7 +75,7 @@ const LineChartBisector = (props: ILineChartProps) => {
       const selectedData = props.data[i]
       focus.attr('cx', scales.xScale(selectedData.x)).attr('cy', scales.yScale(selectedData.y))
       focusText
-        .html(`x:${  selectedData.x  }  -  y:${  selectedData.y}`)
+        .html(`x:${selectedData.x}  -  y:${selectedData.y}`)
         .attr('x', scales.xScale(selectedData.x) + 15)
         .attr('y', scales.yScale(selectedData.y))
     }

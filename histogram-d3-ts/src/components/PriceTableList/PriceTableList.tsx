@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/components/PriceTableList/PriceTableList.tsx
 */
 import React from 'react'
@@ -21,7 +18,7 @@ const useStyles = makeStyles({
     maxHeight: 400,
   },
   table: {
-    minWidth: 650
+    minWidth: 650,
   },
 })
 
@@ -47,7 +44,7 @@ const PriceTableList = (props: IPriceTableListProps) => {
                 {index + 1}
               </TableCell>
               <TableCell className="priceTableListTableCell" style={{ color: props.textColor }} component="th" scope="row">
-                ${parseFloat((d.price as unknown) as string).toFixed(2)}
+                ${parseFloat(d.price as unknown as string).toFixed(2)}
               </TableCell>
             </TableRow>
           ))}

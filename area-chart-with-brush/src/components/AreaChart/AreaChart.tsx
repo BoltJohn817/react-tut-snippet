@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/AreaChart/AreaChart.tsx
 
 Created with;
@@ -15,8 +12,7 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/ChartWidget/types'
 import AreaChartHelper from './AreaChartHelper'
 
-const AreaChart = ( props : IAreaChartProps ) => {
-
+const AreaChart = (props: IAreaChartProps) => {
   const [loaded, setLoaded] = useState(false)
 
   const [prevHeight, setPrevHeight] = useState(props.dimensions.height)
@@ -67,7 +63,6 @@ const AreaChart = ( props : IAreaChartProps ) => {
       // @ts-ignore
       .call(xAxisGenerator)
       .style('transform', `translateY(${props.dimensions.boundedHeight}px)`)
-
   }, [props.data, props.dimensions.boundedHeight, props.dimensions.boundedWidth, props.fill, props.propertiesNames, props.stroke])
 
   useEffect(() => {
@@ -94,10 +89,7 @@ const AreaChart = ( props : IAreaChartProps ) => {
   return (
     <div id="div">
       <svg id="wrapper" width={props.dimensions.width} height={props.dimensions.height}>
-        <g
-          id="bounds"
-          style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}
-        >
+        <g id="bounds" style={{ transform: `translate(${props.dimensions.margin.left}px, ${props.dimensions.margin.top}px)` }}>
           <path id="path" />
           <g id="x-axis" />
           <g id="y-axis" />

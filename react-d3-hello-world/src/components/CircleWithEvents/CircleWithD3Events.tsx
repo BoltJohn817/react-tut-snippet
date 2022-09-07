@@ -1,17 +1,14 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/CircleWithEvents/CircleWithD3Events.tsx
 */
 
-import * as React from 'react'
-import './CircleWithEvents.scss'
-import * as d3 from 'd3'
+import * as React from "react";
+import "./CircleWithEvents.scss";
+import * as d3 from "d3";
 
 export default class CircleWithD3Events extends React.PureComponent<ICircleWithD3EventsProps> {
   componentDidMount() {
-    this.draw()
+    this.draw();
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -27,32 +24,32 @@ export default class CircleWithD3Events extends React.PureComponent<ICircleWithD
   }
 
   draw = () => {
-    d3.select('svg')
-      .append('g')
-      .append('circle')
-      .attr('transform', 'translate(150, 150)')
-      .attr('r', 100)
-      .attr('class', 'circle')
-      .on('click', () => {
+    d3.select("svg")
+      .append("g")
+      .append("circle")
+      .attr("transform", "translate(150, 150)")
+      .attr("r", 100)
+      .attr("class", "circle")
+      .on("click", () => {
         // eslint-disable-next-line no-alert
-        alert('onClick')
+        alert("onClick");
       })
-      .on('mouseover', (event) => {
+      .on("mouseover", (event) => {
         // eslint-disable-next-line no-alert
-        this.onMouseOverHandler(event)
+        this.onMouseOverHandler(event);
       })
-      .on('mouseout', (event) => {
+      .on("mouseout", (event) => {
         // eslint-disable-next-line no-alert
-        this.onMouseOutHandler()
-      })
-  }
+        this.onMouseOutHandler();
+      });
+  };
 
   render() {
     return (
       <>
         <svg id="svg" width="500" height="500" />
       </>
-    )
+    );
   }
 }
 

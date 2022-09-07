@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/Histogram/Histogram.tsx
 */
 
@@ -58,7 +55,7 @@ export default class Histogram extends React.PureComponent<IHistogramProps, IHis
     const histogram = d3
       .bin()
       .value((d) => {
-        return ((d as unknown) as Types.Data).price
+        return (d as unknown as Types.Data).price
       })
       .domain([0, 750])
       .thresholds(xAxis.ticks(this.state.numberOfTicks))

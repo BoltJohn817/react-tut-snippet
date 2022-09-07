@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/AreaChartHelper/AreaChartHelper.tsx
 
 Implement - pass metric:
@@ -13,7 +10,6 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/ChartWidget/types'
 
 export default class AreaChartHelper {
-
   private readonly metric: string[]
 
   constructor(metric: string[]) {

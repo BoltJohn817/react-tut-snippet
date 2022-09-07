@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/TemplateNameHelper/TemplateNameHelper.tsx
 
 Implement - pass metric:
@@ -13,7 +10,6 @@ import * as d3 from 'd3'
 import { Types } from '../../widgets/TemplateNameWidget/types'
 
 export default class TemplateNameHelper {
-
   private readonly metric: string[]
 
   constructor(metric: string[]) {
@@ -61,7 +57,7 @@ export default class TemplateNameHelper {
         .scaleLinear()
         .domain(d3.extent(data, helper.yAccessor) as [number, number])
         .range([height, 0])
-        .nice()
+        .nice(),
     }
   }
 }

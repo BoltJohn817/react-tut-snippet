@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/components/WorldMap/RotatingRoundWorldMapWIthCoordinates.tsx
 */
 
@@ -39,7 +36,7 @@ const RotatingRoundWorldMapWithCoordinates = () => {
         return
       }
       response.json().then((worldData) => {
-        const mapFeatures: Array<Feature<Geometry | null>> = ((feature(worldData, worldData.objects.countries) as unknown) as FeatureCollection).features
+        const mapFeatures: Array<Feature<Geometry | null>> = (feature(worldData, worldData.objects.countries) as unknown as FeatureCollection).features
         setGeographies(mapFeatures)
       })
     })

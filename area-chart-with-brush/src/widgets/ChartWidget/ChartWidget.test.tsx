@@ -1,7 +1,4 @@
 /*
-Author: Eli Elad Elrom
-Website: https://EliElrom.com
-License: MIT License
 Component: src/component/ChartWidget/ChartWidget.test.tsx
 */
 
@@ -14,7 +11,7 @@ describe('<ChartWidget />', () => {
 
   beforeEach(() => {
     component = shallow(<ChartWidget />)
-  });
+  })
 
   test('It should mount', () => {
     expect(component.length).toBe(1)
